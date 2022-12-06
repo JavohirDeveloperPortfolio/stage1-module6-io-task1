@@ -13,7 +13,6 @@ public class FileReader {
             int c, count = 0;
             while ((c = in.read()) != -1){
                 if (c == '\n'){
-                    System.out.println(str);
                     count ++;
                     switch (count){
                         case 1:profile.setName(str.substring(6,str.length() - 1));break;
@@ -21,7 +20,6 @@ public class FileReader {
                         case 3:profile.setEmail(str.substring(7,str.length() - 1));break;
                         case 4:profile.setPhone(Long.parseLong(str.substring(7,str.length() - 1)));break;
                     }
-                    System.out.println(str + " | " + profile);
                     str = new StringBuilder();
                 }else{
                     str.append((char) c);
