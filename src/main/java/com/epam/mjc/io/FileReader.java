@@ -10,7 +10,7 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
         Profile profile = new Profile();
 
-        String str = "";
+        StringBuilder str = new StringBuilder();
         try (FileInputStream in = new FileInputStream(file);) {
             int c;
             int count = 0;
@@ -29,9 +29,9 @@ public class FileReader {
                     if (count == 4){
                         profile.setPhone(Long.parseLong(str.substring(7,str.length() - 1)));
                     }
-                    str = "";
+                    str = new StringBuilder();
                 }else{
-                    str += (char)c;
+                    str.append((char) c);
                 }
             }
 
